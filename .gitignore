@@ -8,7 +8,6 @@ AWS_Lambda/python/
 # Terraform state
 terraform/*.tfstate
 terraform/*.tfstate.backup
-terraform/.terraform/
 
 # Zip files
 function.zip
