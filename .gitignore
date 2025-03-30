@@ -1,0 +1,13 @@
+# Python build artifacts
+__pycache__/
+*.pyc
+
+# Installed dependencies (will be rebuilt)
+AWS_Lambda/python/
+
+# Terraform state
+terraform/*.tfstate
+terraform/*.tfstate.backup
+
+# Zip files
+function.zip
