@@ -2,6 +2,7 @@ import json
 import uuid
 import boto3
 import os
+import time
 
 # Get DynamoDB table name from environment variable
 dynamodb = boto3.resource('dynamodb')
@@ -9,6 +10,7 @@ table_name = os.environ.get("TASKS_TABLE_NAME")
 table = dynamodb.Table(table_name)
 
 def lambda_handler(event, context):
+    time.sleep(2)
     http_method = event.get("httpMethod")
     path = event.get("path")
     response = {}
