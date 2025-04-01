@@ -1,3 +1,13 @@
+terraform {
+  backend "s3" {
+    bucket         = "task-tracker-terraform-state"
+    key            = "infra/terraform.tfstate"
+    region         = "eu-west-3"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
+  }
+}
+
 # Configure the AWS provider
 provider "aws" {
   region = var.aws_region
