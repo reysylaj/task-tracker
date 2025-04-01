@@ -18,3 +18,9 @@ variable "dynamodb_table_name" {
   type        = string
   default     = "TaskTable"
 }
+
+# Alert via email
+variable "alert_email" {
+  description = "Email address to receive CloudWatch alarm alerts"
+  type        = string
+}

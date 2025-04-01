@@ -10,7 +10,7 @@ table_name = os.environ.get("TASKS_TABLE_NAME")
 table = dynamodb.Table(table_name)
 
 def lambda_handler(event, context):
-    time.sleep(2)
+    time.sleep(2000)
     http_method = event.get("httpMethod")
     path = event.get("path")
     response = {}
