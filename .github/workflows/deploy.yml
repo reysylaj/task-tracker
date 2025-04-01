@@ -34,8 +34,7 @@ jobs:
         run: |
           cd terraform
           terraform init
-          # terraform apply -auto-approve
-          echo "⚠️ Skipping terraform apply in CI/CD for now - see README for instructions"
+          terraform apply -auto-approve
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
