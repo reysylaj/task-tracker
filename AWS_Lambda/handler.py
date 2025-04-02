@@ -2,7 +2,6 @@ import json
 import uuid
 import boto3
 import os
-import time
 
 # Get DynamoDB table name from environment variable
 dynamodb = boto3.resource('dynamodb')
@@ -10,16 +9,9 @@ table_name = os.environ.get("TASKS_TABLE_NAME")
 table = dynamodb.Table(table_name)
 
 def lambda_handler(event, context):
-    # Simulate latency to test duration alarm
-    time.sleep(2)
-    
     http_method = event.get("httpMethod")
     path = event.get("path")
     response = {}
-
-    # Simulate forced error for CloudWatch testing
-    if path == "/trigger-error":
-        raise Exception("This is a forced error for CloudWatch alarm testing")
 
     if http_method == "POST" and path == "/tasks":
         data = json.loads(event.get("body", "{}"))
