@@ -8,6 +8,8 @@ terraform {
   }
 }
 
+
+
 # Configure the AWS provider
 provider "aws" {
   region = var.aws_region
@@ -86,6 +88,7 @@ resource "aws_lambda_function" "task_lambda" {
   handler       = "handler.lambda_handler"
   runtime       = "python3.12"
   filename      = "${path.module}/../function.zip"
+  source_code_hash = filebase64sha256("${path.module}/../function.zip")
 
   environment {
     variables = {
